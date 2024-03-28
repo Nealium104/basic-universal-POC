@@ -1,6 +1,15 @@
-import { json } from './json1.js';
+const modulePath = document.querySelector('meta[name="json-path"]').getAttribute('content');
 
-function generateNav() {
+import(modulePath)
+.then(module => {
+  const json = module.default;
+  generateNav(json);
+})
+.catch(error => {
+  console.error("Error with json", error);
+})
+
+function generateNav(json) {
 
   const navContainer = document.createElement('nav');
   navContainer.classList.add('bg-blue-800', "px-4", "py-8", "flex", "gap-8", "text-white");
@@ -26,10 +35,7 @@ function generateNav() {
     howToContainer.appendChild(liElement)
   });
 
-
   const loginSpan = document.createElement('span');
-  loginSpan.innerHTML = `<a href="${json.login}">Login</a>`;
+  loginSpan.innerHTML = `<a class="px-4 py-2 rounded bg-white text-blue-800" href="${json.login}">Login</a>`;
   navContainer.appendChild(loginSpan);
 }
-
-window.addEventListener('load', generateNav);

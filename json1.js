@@ -1,4 +1,4 @@
-export let json = {
+const json = {
     "Image": "https://www.researchgate.net/profile/Pedro-Alves-Da-Veiga/publication/349716424/figure/fig12/AS:996972131520525@1614708087153/A-non-existing-cat-photo-realistic-image-produced-by-a-Generative-Adversarial-Network.ppm",
     "About": {
         "Our Library": "https://linktoourlibrary.com/ourlibrary",
@@ -13,3 +13,4 @@ export let json = {
     },
     "login": "https://website.com/login"
 }
+export default json;
