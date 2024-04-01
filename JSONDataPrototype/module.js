@@ -1,4 +1,6 @@
-const modulePath = document.querySelector('meta[name="json-path"]').getAttribute('content');
+const modulePath = document.querySelector('script[data-config]').dataset.config;
+
+console.log(modulePath)
 
 import(modulePath)
 .then(module => {
